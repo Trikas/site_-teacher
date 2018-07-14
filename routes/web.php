@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('major_str.index');
-});
+Route::get('/', 'AboutUserUnRegistr@AboutUser');
+
+// 	function () {
+//     return view('major_str.index');
+// });
 // Route::get('/home', function () {
 //   return view('major_str.index');
 // });
