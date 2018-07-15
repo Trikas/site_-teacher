@@ -24,10 +24,10 @@
    <link rel="stylesheet" href="{{asset('assets/plugins/datepicker/datepicker3.css')}}">
    <!-- Daterange picker -->
    <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker-bs3.css')}}">
-   <!-- bootstrap wysihtml5 - text editor -->
-   <link rel="stylesheet" href="{{asset('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+   <script src="{{asset('assets/plugins/ckeditor/ckeditor.js')}}"></script>
    <!-- Google Font: Source Sans Pro -->
    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
  </head>
  @show
  <body class="hold-transition sidebar-mini">
@@ -42,7 +42,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Главная</a>
+        <a href="{{url('/admin')}}" class="nav-link">Главная</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Контакты</a>
@@ -172,83 +172,34 @@
                with font-awesome or any other icon font library -->
               <li class="nav-item">
                 <a href="{{url('/admin')}}" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                  <i class="fas fa-home nav-icon"></i>
                   <p>Главная Страница</p>
                 </a>
               </li>
 
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fa fa-th"></i>
+            <a href="{{url('/admin/user_reg')}}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Пользователи
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('/admin/make_lesson')}}" class="nav-link">
+              <i class="nav-icon fas fa-pencil-alt"></i>
+              <p>
+                Создать урок
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-pie-chart"></i>
+            <a href="{{url('/admin/user_visits')}}" class="nav-link">
+              <i class="nav-icon far fa-eye"></i>
               <p>
-                Charts
-                <i class="right fa fa-angle-left"></i>
+                Посещения
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-tree"></i>
-              <p>
-                UI Elements
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -453,27 +404,31 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    @section('content_header')
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark">Главная</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
+              <li class="breadcrumb-item"><a href="{{url('/admin')}}">Главная</a></li>
+            
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    @show
     <!-- /.content-header -->
 
     <!-- Main content -->
+   
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+        @section('content')
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -481,42 +436,12 @@
               <div class="inner">
                 <h3>150</h3>
 
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
+                <p>Зарегестрировалось</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{url('/admin/user_reg')}}" class="small-box-footer">Больше Информации <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -524,14 +449,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>3</h3>
 
-                <p>Unique Visitors</p>
+                <p>Посещений сайта</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="{{url('/admin/user_visits')}}" class="small-box-footer">Больше информации<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -542,36 +467,13 @@
           <!-- Left col -->
           <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">
-                  <i class="fa fa-pie-chart mr-1"></i>
-                  Sales
-                </h3>
-                <ul class="nav nav-pills ml-auto p-2">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                  </li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 300px;"></div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
+    
             <!-- /.card -->
 
             <!-- DIRECT CHAT -->
             <div class="card direct-chat direct-chat-primary">
               <div class="card-header">
-                <h3 class="card-title">Direct Chat</h3>
+                <h3 class="card-title">Сообщения</h3>
 
                 <div class="card-tools">
                   <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
@@ -889,105 +791,14 @@
 
             <!-- Map card -->
             <div class="card bg-primary-gradient">
-              <div class="card-header no-border">
-                <h3 class="card-title">
-                  <i class="fa fa-map-marker mr-1"></i>
-                  Visitors
-                </h3>
-                <!-- card tools -->
-                <div class="card-tools">
-                  <button type="button"
-                          class="btn btn-primary btn-sm daterange"
-                          data-toggle="tooltip"
-                          title="Date range">
-                    <i class="fa fa-calendar"></i>
-                  </button>
-                  <button type="button"
-                          class="btn btn-primary btn-sm"
-                          data-widget="collapse"
-                          data-toggle="tooltip"
-                          title="Collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <div class="card-body">
-                <div id="world-map" style="height: 250px; width: 100%;"></div>
-              </div>
+              
+              
               <!-- /.card-body-->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-2"></div>
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-3"></div>
-                    <div class="text-white">Sales</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
+             
             <!-- /.card -->
 
             <!-- solid sales graph -->
-            <div class="card bg-info-gradient">
-              <div class="card-header no-border">
-                <h3 class="card-title">
-                  <i class="fa fa-th mr-1"></i>
-                  Sales Graph
-                </h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn bg-info btn-sm" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn bg-info btn-sm" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart" id="line-chart" style="height: 250px;"></div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">Mail-Orders</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">In-Store</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
+           
             <!-- /.card -->
 
             <!-- Calendar -->
@@ -996,7 +807,7 @@
 
                 <h3 class="card-title">
                   <i class="fa fa-calendar"></i>
-                  Calendar
+                  Календарь
                 </h3>
                 <!-- tools card -->
                 <div class="card-tools">
@@ -1031,11 +842,13 @@
           </section>
           <!-- right col -->
         </div>
+         @show
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
+ 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>

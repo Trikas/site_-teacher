@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'AboutUserUnRegistr@AboutUser');
+Route::get('/', 'AboutUserUnRegistr@AboutUser')->middleware('localUser');
 
 // 	function () {
 //     return view('major_str.index');
@@ -29,16 +29,21 @@ Route::get('/post', function (){
   return view('post.post');
 });
 
-//Админка
-Route::get('/admin', ['middleware'=>'admin', function (){
+//------------------------Админка----------------------------------
+Route::get('/admin', ['middleware'=>['adminLogin'],  function (){
 	return view('adminsection.index');
 }]);
 
-// 	function (){
-//   
-// });
+Route::get('/admin/user_reg', 'ShowDataTableUserReg@showUser');
+Route::get('/admin/user_visits', 'ShowDataTableUserVisit@showUser');
+Route::get('/admin/make_lesson', function (){
 
-//конец админки
+	return view('adminsection.inc.make_lesson');
+});
+Route::post('/admin/make_lesson/to_bd', 'LessonToBd@insertLesson');
+
+
+//---------------------конец админки---------------------------------
 
 Auth::routes();
 
