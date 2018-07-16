@@ -21,8 +21,7 @@ class LocalVisits
 
         if (!Auth::check()){
                 if (session('userlocal')==NULL){
-                    $ip = '5.153.138.227';
-                    //$_SERVER['REMOTE_ADDR'];
+                    $ip = $_SERVER['REMOTE_ADDR'];
                     $access_key = '085c7185d8f15a963737db092136643a';
 
                     $ch = curl_init('http://api.ipstack.com/'.$ip.'?access_key='.$access_key.'');

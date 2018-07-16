@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'AboutUserUnRegistr@AboutUser')->middleware('localUser');
+Route::get('/', 'userSide\PrintLessonOnIndex@SelectBd')->middleware('localUser');
 
 // 	function () {
 //     return view('major_str.index');
@@ -25,23 +25,22 @@ Route::get('/about', function (){
 Route::get('/send_sms', function (){
   return view('major_str.send_sms');
 });
-Route::get('/post', function (){
-  return view('post.post');
-});
+// принт уроков
+Route::get('/lesson/{id}/{title}', 'userSide\PrintLessonFull@SelectLesson');
 
 //------------------------Админка----------------------------------
 Route::get('/admin', ['middleware'=>['adminLogin'],  function (){
 	return view('adminsection.index');
 }]);
 
-Route::get('/admin/user_reg', 'ShowDataTableUserReg@showUser');
-Route::get('/admin/user_visits', 'ShowDataTableUserVisit@showUser');
+Route::get('/admin/user_reg', 'AdminSection\ShowDataTableUserReg@showUser');
+Route::get('/admin/user_visits', 'AdminSection\ShowDataTableUserVisit@showUser');
 Route::get('/admin/make_lesson', function (){
 
 	return view('adminsection.inc.make_lesson');
 });
-Route::post('/admin/make_lesson/to_bd', 'LessonToBd@insertLesson');
-
+Route::post('/admin/make_lesson/to_bd', 'AdminSection\LessonToBd@insertLesson');
+Route::get('/admin/all_lessons', 'AdminSection\PrintAllLessons@SelectAllLess');
 
 //---------------------конец админки---------------------------------
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminSection;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class LessonToBd extends Controller
 {
@@ -13,8 +14,9 @@ class LessonToBd extends Controller
    			DB::table('lesson')->insert([
 				      'content' => $contTxt,
 				      'author' => 'Олейник Ольга Ивановна',
-				      'title' => 'Урок'
-				  ]);
+				      'title' => $request->title,
+              'date' => date('j-m-Y в G:i', time())
+        ]);
 
    			return redirect('/admin/make_lesson');
    		} 

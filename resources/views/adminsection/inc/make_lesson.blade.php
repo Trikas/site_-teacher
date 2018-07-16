@@ -24,7 +24,7 @@
   <div class="card card-outline card-info">
             <div class="card-header">
               <h3 class="card-title">
-            
+               
                 <small>Просто и быстро</small>
               </h3>
               <!-- tools box -->
@@ -41,8 +41,9 @@
             <!-- /.card-header -->
             <div class="card-body pad">
               <div class="mb-3">
-  <!--               <script type="text/javascript" src="/AjexFileManager/ajex.js"></script> -->
-            
+                <label for="exampleInputEmail1">Ввести название урока</label>
+                <input type="text" class="form-control" name="title" placeholder="Название"><br>
+           
                 <textarea id="editor" name="txt" cols="100" rows="20" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                     
                     <script type="text/javascript">

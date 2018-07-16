@@ -14,10 +14,11 @@ class Lesson extends Migration
     public function up()
     {
             Schema::create('lesson', function (Blueprint $table) {
+            $table->increments('id');   
             $table->text('content');
             $table->string('author');
             $table->string('title');
-            $table->timestamp('date');
+            $table->char('date');
         });
     }
 
