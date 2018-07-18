@@ -403,18 +403,18 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-   
+ 
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        @section('content')
+    @section('content')
         <div class="row">
+    @section('reg_user_col')        
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>150</h3>
-
                 <p>Зарегестрировалось</p>
               </div>
               <div class="icon">
@@ -423,7 +423,9 @@
               <a href="{{url('/admin/user_reg')}}" class="small-box-footer">Больше Информации <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
+    @show      
           <!-- ./col -->
+    @section('user_visits_col')      
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
@@ -438,6 +440,7 @@
               <a href="{{url('/admin/user_visits')}}" class="small-box-footer">Больше информации<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
+    @show      
           <!-- ./col -->
         </div>
         <!-- /.row -->
@@ -452,8 +455,7 @@
             <!-- DIRECT CHAT -->
             <div class="card direct-chat direct-chat-primary">
               <div class="card-header">
-                <h3 class="card-title">Сообщения</h3>
-
+                <h3 class="card-title">Имя</h3>
                 <div class="card-tools">
                   <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
                   <button type="button" class="btn btn-tool" data-widget="collapse">
@@ -472,6 +474,7 @@
                 <!-- Conversations are loaded here -->
                 <div class="direct-chat-messages">
                   <!-- Message. Default to the left -->
+
                   <div class="direct-chat-msg">
                     <div class="direct-chat-info clearfix">
                       <span class="direct-chat-name float-left">Alexander Pierce</span>
@@ -485,6 +488,7 @@
                     </div>
                     <!-- /.direct-chat-text -->
                   </div>
+                  
                   <!-- /.direct-chat-msg -->
 
                   <!-- Message to the right -->
@@ -767,20 +771,38 @@
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
+            @section('users-list')
+              <div class="card">
+                <!-- users-list  -->
+                  <div class="card-header">
+                    <h3 class="card-title">Чаты</h3>
 
-            <!-- Map card -->
-            <div class="card bg-primary-gradient">
-              
-              
-              <!-- /.card-body-->
-             
-            <!-- /.card -->
+                    <div class="card-tools">
+                      <span class="badge badge-success">3 новых сообщений</span>
+                      <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                      </button>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body p-0">
+                    <ul class="users-list clearfix">
+                      <li>
+                        <img src="{{asset('assets/dist/img/user1-128x128.jpg')}}" alt="User Image">
+                        <a class="users-list-name" href="#">Alexander Pierce
+                        <span class="users-list-date">time <span class="badge badge-success" style="font-size: 12px;">3</span></a>
+                      </li>
+                    </ul>
+                    <!-- /.users-list -->
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer text-center">
+                    <a href="javascript::">View All Users</a>
+                  </div>
+                  <!-- /.card-footer -->
+              </div>
+            @show  
 
-            <!-- solid sales graph -->
-           
-            <!-- /.card -->
-
-            <!-- Calendar -->
             <div class="card bg-success-gradient">
               <div class="card-header no-border">
 
@@ -816,9 +838,10 @@
                 <div id="calendar" style="width: 100%"></div>
               </div>
               <!-- /.card-body -->
-            </div>
+           
             <!-- /.card -->
           </section>
+
           <!-- right col -->
         </div>
          @show
@@ -886,6 +909,24 @@
 <script src="{{asset('assets/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('assets/dist/js/demo.js')}}"></script>
+<script>
+$('.send_sms').on('click', function(){
+  $.ajax({
+        url: '/admin/ajax',
+        cache: false,
+        data: {'sms': $('.type_sms').val()},
+        type: "GET",
+        success: function (data) {
+          alert(data);
+        }
+         //контент подгружается в div#content
+    });
+
+
+ 
+});
+
+</script> 
 @show
 </body>
 </html>

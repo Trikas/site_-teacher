@@ -28,10 +28,9 @@ Route::get('/send_sms', function (){
 // принт уроков
 Route::get('/lesson/{id}/{title}', 'userSide\PrintLessonFull@SelectLesson');
 
-//------------------------Админка----------------------------------
-Route::get('/admin', ['middleware'=>['adminLogin'],  function (){
-	return view('adminsection.index');
-}]);
+//------------------------Админка----------------------------------//
+Route::get('/admin','AdminSection\IndexPageModule@selectBd'
+)->middleware('adminLogin');
 
 Route::get('/admin/user_reg', 'AdminSection\ShowDataTableUserReg@showUser');
 Route::get('/admin/user_visits', 'AdminSection\ShowDataTableUserVisit@showUser');
@@ -42,7 +41,11 @@ Route::get('/admin/make_lesson', function (){
 Route::post('/admin/make_lesson/to_bd', 'AdminSection\LessonToBd@insertLesson');
 Route::get('/admin/all_lessons', 'AdminSection\PrintAllLessons@SelectAllLess');
 
-//---------------------конец админки---------------------------------
+//---------------------конец админки---------------------------------//
+
+//-------------------------Ajax-запросы------------------------------//
+Route::get('admin/ajax', 'AjaxTest@test');
+//----------------------------конец----------------------------------//
 
 Auth::routes();
 

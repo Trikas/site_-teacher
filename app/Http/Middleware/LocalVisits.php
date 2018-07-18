@@ -31,16 +31,18 @@ class LocalVisits
 
                     $api_result = json_decode($json, true);
                     $latitude_longitude = $api_result['latitude'].','.$api_result['longitude'];
-
-                    DB::table('visits')->insert([
+                    
+                if($api_result['country_name']!=NULL&&$api_result['region_name']!=NULL){
+                   DB::table('visits')->insert([
                         'country_name' => $api_result['country_name'],
                         'region_name' => $api_result['region_name'],
-                        'latitude_longitude' => $latitude_longitude
-                                         
+                        'latitude_longitude' => $latitude_longitude            
                         ]);
                     
-                    session(['userlocal'=>'1']);
-            
+                   
+             
+                }
+                   session(['userlocal'=>'1']);  
                 }          
             }
 

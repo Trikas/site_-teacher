@@ -14,9 +14,11 @@ class SmsChat extends Migration
     public function up()
     {
         Schema::create('smsChat', function (Blueprint $table) {
-            $table->string('user');
-            $table->string('unique_id_sms');
-            $table->timestamp('date_send');
+            $table->increments('unique_id_sms');
+            $table->string('user_send');
+            $table->string('destination');
+            $table->string('content');
+            $table->char('date_send');
         });//
     }
 
