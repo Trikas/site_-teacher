@@ -42,16 +42,17 @@
             <div class="card-body pad">
               <div class="mb-3">
                 <label for="exampleInputEmail1">Ввести название урока</label>
-                <input type="text" class="form-control" name="title" placeholder="Название"><br>
+                <input type="text" class="form-control" name="title" placeholder="Название" value="{{$title}}"><br>
            
-                <textarea id="editor" name="txt" cols="100" rows="20" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                <textarea id="editor" name="txt" cols="100" rows="20" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$lesson}}</textarea>
                     
                     <script type="text/javascript">
                     var editor = CKEDITOR.replace('editor',{height: 500});
                     AjexFileManager.init({returnTo: 'ckeditor', editor: editor});
                     </script>
               </div>
-                   <input type="submit" class="btn btn-block btn-primary btn-sm" value="Опубликовать">
+              <input type="hidden" name="id" value="{{$id}}">
+              <input type="submit" class="btn btn-block btn-primary btn-sm" value="Опубликовать">
             </div>
           </div>
 </form>          

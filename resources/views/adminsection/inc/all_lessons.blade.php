@@ -46,14 +46,16 @@
                   </tr>
                 @foreach($lessons as $less)
                   <tr>
+                 
                     <td>{{$less->id}}</td>
                     <td>{{$less->title}}</td>
                     <td>{{$less->date}}</td>
                     <td>{{$less->author}} </td>
-                	<td><a href="{{url('/admin/make_lesson/'.$less->id)}}"><button class="btn btn-default"><i class="fas fa-pencil-alt"></i></i></button></a></td>
-                  </tr></td>
-                   
+                	<td><a href="{{route('post', $less->id)}}" button class="btn btn-default"><i class="fas fa-pencil-alt"></i></i></button></a></td>
+                  </tr>
+                   </td> 
                 @endforeach 
+                {{$lessons->render()}}
                 </table>
               </div>
               <!-- /.card-body -->

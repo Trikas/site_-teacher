@@ -13,7 +13,7 @@
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.min.css')}}" >
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}" >
 
     <!-- Custom Fonts -->
     <link href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
 
     <!-- Navigation -->
     @section('navigation')
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top" >
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -41,20 +41,24 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{url('/')}}">Дистанционное образование</a>
+                <a class="navbar-brand" href="{{url('/')}}" style="color: #7eaa08;">Дистанційне навчання</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
+           
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{url('/home')}}">Домой</a>
+                        <a href="{{url('/')}}" style="color: #7eaa08;" >Головна</a>
                     </li>
                     <li>
-                        <a href="{{url('/about')}}">Обо мне</a>
+                        <a href="{{url('/about')}}" style="color: #7eaa08;">Учитель</a>
                     </li>
                     <li>
-                        <a href="{{url('/send_sms')}}">Отправить смс</a>
+                        <a href="{{url('/send_sms')}}" style="color: #7eaa08;">Надиіслати повідомлення</a>
+                    </li>
+                    <li>
+                        <a href="{{url('/login')}}" style="color: #7eaa08;">Увійти/Зареєструватись</a>
                     </li>
                 </ul>
             </div>
@@ -66,13 +70,14 @@
 
     <!-- Page Header -->
 @section('pageHeader')
-    <header class="intro-header" style="background-image:url({{asset('assets/img/home-bg.jpg')}})">
+    <header class="intro-header" style="background-color: #e7efd2;">
+        <!-- background-image:url({{asset('assets/img/home-bg.jpg')}}) -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Добро пожаловать</h1>
-                        <hr class="small">
+                        <h1 style="color: #7eaa08;">Добрий день!</h1>
+                       
                         <span class="subheading"></span>
                     </div>
                 </div>
@@ -116,32 +121,11 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
+                    <li><a href="" style="text-decoration:none;" class="copyright text-muted">разработка 
+                    <span style="color:blue;">T</span><span style="colore:green;">F</span><span style="color:red;">N</span></a></li>
+                    <li class="copyright text-muted"> version 1.0.0</li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; site oleynik-olga 2018</p>
                 </div>
             </div>
         </div>

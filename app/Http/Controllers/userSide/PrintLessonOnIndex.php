@@ -10,8 +10,11 @@ use App\Http\Controllers\Controller;
 class PrintLessonOnIndex extends Controller
 {
     function SelectBd(Request $request){
-   	 	
-   	 	$lesson = DB::table('lesson')->get();	
-		return view('major_str.index', ['lesson'=>$lesson]);
+		$user = "";
+		if (Auth::user()){
+			$user = $request->user()->name;
+		}
+   	 	$lesson = DB::table('lesson')->paginate(4);	
+		return view('major_str.index', ['lesson'=>$lesson, 'user'=>$user]);
 	}	
 }

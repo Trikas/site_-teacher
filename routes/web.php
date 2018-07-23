@@ -26,23 +26,23 @@ Route::get('/send_sms', function (){
   return view('major_str.send_sms');
 });
 // принт уроков
-Route::get('/lesson/{id}/{title}', 'userSide\PrintLessonFull@SelectLesson');
+Route::get('/lesson/{id}/{title}', 'userSide\PrintLessonFull@SelectLesson')->middleware('auth');
 
 //------------------------Админка----------------------------------//
 Route::get('/admin','AdminSection\IndexPageModule@selectBd'
 )->middleware('adminLogin');
 
+Route::get('/admin/make_lesson/{id?}', 'AdminSection\MakeLesson@Make')->name('post');
 Route::get('/admin/user_reg', 'AdminSection\ShowDataTableUserReg@showUser');
 Route::get('/admin/user_visits', 'AdminSection\ShowDataTableUserVisit@showUser');
-Route::get('/admin/make_lesson', function (){
-
-	return view('adminsection.inc.make_lesson');
-});
+Route::get('/admin/waiting_reg', 'AdminSection\ShowDataTableUserWait@showUser');
 Route::post('/admin/make_lesson/to_bd', 'AdminSection\LessonToBd@insertLesson');
 Route::get('/admin/all_lessons', 'AdminSection\PrintAllLessons@SelectAllLess');
 
 //---------------------конец админки---------------------------------//
-
+Route::get('/login_info', function (){
+	return view('auth.login_info');
+});
 //-------------------------Ajax-запросы------------------------------//
 Route::get('admin/ajax', 'AjaxTest@test');
 //----------------------------конец----------------------------------//
@@ -50,3 +50,5 @@ Route::get('admin/ajax', 'AjaxTest@test');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

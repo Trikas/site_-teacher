@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class PrintAllLessons extends Controller
 {
 	function SelectAllLess(){
-	$lessons = DB::table('lesson')->get();
+	$lessons = DB::table('lesson')->paginate(10);
 
 	return view('adminsection.inc.all_lessons', ['lessons'=>$lessons]);	  
 	}

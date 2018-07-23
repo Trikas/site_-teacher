@@ -26,7 +26,8 @@
    <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker-bs3.css')}}">
    <script src="{{asset('assets/plugins/ckeditor/ckeditor.js')}}"></script>
    <!-- Google Font: Source Sans Pro -->
-   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Lora+Sans" rel="stylesheet">
+
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
  </head>
  @show
@@ -42,10 +43,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/admin')}}" class="nav-link">Главная</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Контакты</a>
+        <a href="{{url('/')}}" class="nav-link">На главную</a>
       </li>
     </ul>
     <!-- Right navbar links -->
@@ -150,7 +148,7 @@
     <a href="index3.html" class="brand-link">
       <img src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin</span>
+      <span class="brand-text font-weight-light">AdminPanel</span>
     </a>
 
     <!-- Sidebar -->
@@ -161,7 +159,7 @@
           <img src="{{asset('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block">Olga Oleynik</a>
         </div>
       </div>
 
@@ -186,7 +184,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('/admin/make_lesson')}}" class="nav-link">
+            <a href="{{route('post')}}" class="nav-link">
               <i class="nav-icon fas fa-pencil-alt"></i>
               <p>
                 Создать урок
@@ -438,6 +436,22 @@
                 <i class="ion ion-pie-graph"></i>
               </div>
               <a href="{{url('/admin/user_visits')}}" class="small-box-footer">Больше информации<i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+    @show
+    @section('wait_reg_users')
+      <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>3</h3>
+
+                <p>Ожидают регистрации</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{{url('/admin/waiting_reg')}}" class="small-box-footer">Больше информации<i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
     @show      
@@ -853,10 +867,9 @@
  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong>&copy; 2014-2018 <a href="http://adminlte.io">product by One Four Nine</a>.</strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.0-alpha
+      <b>Version</b> 1.0.0-alpha
     </div>
   </footer>
 
