@@ -17,7 +17,9 @@ class Lesson extends Migration
             $table->increments('id');   
             $table->text('content');
             $table->string('author');
-            $table->string('title');
+            $table->string('title1');
+            $table->string('title2');
+            $table->string('name_lesson');
             $table->char('date');
         });
     }

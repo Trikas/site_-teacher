@@ -39,7 +39,7 @@
               <div class="inner">
                 <h3>{{$count_wait['id']}}</h3>
 
-                <p>Ожидают регистрацию</p>
+                <p>Ожидают регистрации</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -48,6 +48,25 @@
             </div>
           </div>
 @endsection
+   @section('chat_head')
+            <div class="card direct-chat direct-chat-primary">
+              <div class="card-header">
+                <h3 class="card-title" id="destination">test</h3>
+                <div class="card-tools">
+                  <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
+                          data-widget="chat-pane-toggle">
+                    <i class="fa fa-comments"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+@endsection
+
 @section('users-list')
    <div class="card">
                 <!-- users-list  -->
@@ -76,7 +95,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-center">
-                    <a href="javascript::">View All Users</a>
+                    <a href="">View All Users</a>
                   </div>
                   <!-- /.card-footer -->
               </div>

@@ -10,6 +10,8 @@ class LessonToBd extends Controller
 {
    function insertLesson (Request $request){
   		$contTxt = $request->txt;
+   
+
     
       if ($request->id!=NULL){
            if (!empty($contTxt)){
@@ -17,8 +19,9 @@ class LessonToBd extends Controller
             ->where('id', $request->id)
             ->update([
              'content' => $contTxt,
-             'author' => 'Олейник Ольга Ивановна',
-             'title' => $request->title,
+             'author' => 'Олейник Ольга Іванівна',
+             'title1' => $request->title1,
+             'title2' => $request->title2,
              'date' => date('j-m-Y в G:i', time())
            ]);
           }
@@ -27,8 +30,11 @@ class LessonToBd extends Controller
    		elseif (!empty($contTxt)){
    			DB::table('lesson')->insert([
 				      'content' => $contTxt,
-				      'author' => 'Олейник Ольга Ивановна',
-				      'title' => $request->title,
+				      'author' => 'Олейник Ольга Іванівна',
+				      'title1' => $request->title1,
+              'title2' => $request->title2,
+              'name_lesson'=>$request->hero[0],
+            
               'date' => date('j-m-Y в G:i', time())
         ]);
   } 

@@ -17,9 +17,10 @@
 
     <!-- Custom Fonts -->
     <link href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300|Source+Sans+Pro:300" rel="stylesheet">
+   <!--  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
+ -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -76,7 +77,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 style="color: #7eaa08;">Добрий день!</h1>
+                        <h1 style="color:#00bc71;">Добрий день!</h1>
                        
                         <span class="subheading"></span>
                     </div>
@@ -121,7 +122,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
-                    <li><a href="" style="text-decoration:none;" class="copyright text-muted">разработка 
+                    <li><a href="" style="text-decoration:none;" class="copyright text-muted">розробка сайту от
                     <span style="color:blue;">T</span><span style="colore:green;">F</span><span style="color:red;">N</span></a></li>
                     <li class="copyright text-muted"> version 1.0.0</li>
                     </ul>

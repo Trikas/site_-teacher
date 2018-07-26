@@ -26,6 +26,7 @@
                     <th>Отчество</th>
                     <th>почта</th>
                     <th>Телефон</th>
+                    <th>Зарегестрировать</th>
                   </tr>
                 @foreach($user_wait as $user)  
                   <tr>
@@ -35,6 +36,7 @@
                     <td>{{$user->otchestvo}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
+                    <td><a href="{{url('/admin/register650287')}}">Зарегестрировать</a></td>
                   </tr>
                   @endforeach
                 </table>

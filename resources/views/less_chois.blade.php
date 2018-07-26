@@ -54,64 +54,52 @@
         <!-- /.container -->
     </nav>
 @endsection
+@section('pageHeader')
+    <header class="intro-header" style="background-color: #e7efd2;">
+        <!-- background-image:url({{asset('assets/img/home-bg.jpg')}}) -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1 style="color:#00bc71;">
+                          {{$lessName}}
+                        </h1>
+                       
+                        <span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+@endsection
 @section('content')
-
-  <div class="container">
-    <div class="row">
-       <div class="col-md-4 col-sm-12 col-xs-12 my-col text-center">
-       </div>
-       <div class="col-md-4 col-sm-12 col-xs-12 my-col text-center">
-        <h1>Оберіть урок</h1>
-        <hr>
-       </div>
-       <div class="col-md-4 col-sm-12 col-xs-12 my-col text-center">
-       </div>
-    </div>    
-    <div class="row">
-        
-        <a href="{{url('/lesson/choice/less_read')}}"><div class="col-md-4 col-sm-12 col-xs-12 my-col text-center" style="background-color:#e2f2bc;">
-            <h2>Уроки  <br>читання</h2>
-        </div></a>
-       
-        <a href="{{url('/lesson/choice/less_mat')}}"><div class="col-md-4 col-sm-12 col-xs-12 my-col text-center" style="background-color:#f1f1bb;">
-            <h2>Уроки <br>математики</h2>
-        </div></a>
-       
-        <a href="{{url('/lesson/choice/less_lang')}}"><div class="col-md-4 col-sm-12 col-xs-12 my-col text-center" style="background-color:#d2efe3;" >
-           <h2>Уроки  <br> української мови</h2>
-        </div></a>
-       
-    </div>
-    <div class="row">
-        <div>
-            <div class="col-md-4 col-sm-12 col-xs-12">
-
-             </div>   
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	@foreach($lesson as $less)
+                <div class="post-preview">
+                    <a href="{{url('/lessons/'.$less->id.'/'.$less->title1)}}">
+                        <h2 class="post-title" style="color: #0c6a99;">
+                           {{$less->title1}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{$less->title2}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">автор <a href="#">{{$less->author}} </a>{{$less->date}}</p>
+                </div>
+                <hr>
+                @endforeach
+                
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                       {{$lesson->render()}}
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="row">
-         <a href="{{url('/lesson/choice/less_art')}}"><div class="col-md-4 col-sm-12 col-xs-12 my-col text-center" style="background-color:#efe7d2;" >
-           <h2>Природознавство та <br>мистецтво</h2>
-        </div></a>
-    </div><br>
-     <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-        </div>   
-       <div class="col-md-4 col-sm-12 col-xs-12 my-col text-center">
-        <h1>Новини</h1>
-        <hr>
-       </div>
-        <div class="col-md-4 col-sm-12 col-xs-12">
-        </div> 
-     </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-12 col-xs-12">
-        </div>   
-       <div class="col-md-4 col-sm-12 col-xs-12 my-col text-center">
-        <p>Цей модуль знаходиться у розробці</p>
-       </div>
-        <div class="col-md-4 col-sm-12 col-xs-12">
-        </div> 
-     </div>    
-</div>    
+
+    <hr>
   @endsection

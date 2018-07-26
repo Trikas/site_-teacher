@@ -41,8 +41,17 @@
             <!-- /.card-header -->
             <div class="card-body pad">
               <div class="mb-3">
-                <label for="exampleInputEmail1">Ввести название урока</label>
-                <input type="text" class="form-control" name="title" placeholder="Название" value="{{$title}}"><br>
+                <label for="exampleInputEmail1">Заголовок урока</label>
+                <textarea type="text" class="form-control" name="title1" placeholder="Название" value="{{$title}}"></textarea><br>
+                <label for="exampleInputEmail1">Подзаголовок урока</label>
+                <textarea type="text" class="form-control" name="title2" placeholder="Название" value="{{$title}}"></textarea><br>
+                <label for="exampleInputEmail1">Выбрать урок</label>
+                <p><select size="4" multiple name="hero[]">
+                <option value="less_read">Урок читання</option>
+                <option value="less_mat">Урок математики</option>
+                <option value="less_lang">Ураїнська мова</option>
+                <option value="less_art">Природознавство та мистецтво</option>
+                </select></p>
            
                 <textarea id="editor" name="txt" cols="100" rows="20" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$lesson}}</textarea>
                     

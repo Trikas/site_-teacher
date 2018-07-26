@@ -32,4 +32,5 @@ class PreRegisterController extends Controller
 		return redirect('/login_info');
 	}
 
+
 }

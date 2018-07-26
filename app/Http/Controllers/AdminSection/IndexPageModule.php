@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminSection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class IndexPageModule extends Controller
 {	
@@ -20,13 +21,18 @@ class IndexPageModule extends Controller
 		$count_wait  =(array) $user_wait_col->first();
 		$msg = "This is a simple message.";
 
+		$all_message = DB::table('smsChat')->orderBy('unique_id_sms', 'desc')
+                ->get();
+
 
 
 	return view('adminsection.index', [	'count_user' => $count_user, 
-											'count_visits' => $count_visits, 
-											'user_reg' => $user_reg,
-											'test' => $request->input('id'), 
-											'count_wait'=> $count_wait
+				'count_visits' => $count_visits, 
+				'user_reg' => $user_reg,
+				'test' => $request->input('id'), 
+				'count_wait'=> $count_wait,
+				'all_message'=>$all_message, 
+				'user'=>$request->user()->name
 										]);
 	
 		
