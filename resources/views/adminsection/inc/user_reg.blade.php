@@ -38,19 +38,29 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tr>
-                    <th>ID</th>
                     <th>Имя Пользователя</th>
                     <th>email</th>
                     <th>дата регистрации</th>
                     <th>Отправить Смс</th>
+                    <th>Удалить пользователя</th>
                   </tr>
-                @foreach($user_reg as $user)
                   <tr>
-                    <td>{{$user->id}}</td>
+                  @foreach($user_reg as $user)
+                  @if($user->id==1)             
+                    <td>{{$user->name}}:admin</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->created_at}}</td>
+                    <td>-----</td>
+                    <td>-----</td>
+                  @else 
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>ссылка на форму отправки смс</td>
+                    <td><a href="{{url('/admin/user_reg/'.$user->id)}}">Удалить пользователя</a></td>
+
+                @endif
+                   
                   </tr>
                 @endforeach 
                 </table>

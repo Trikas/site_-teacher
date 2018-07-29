@@ -22,6 +22,10 @@ Route::get('/', 'userSide\PrintLessonOnIndex@SelectBd')->middleware('localUser')
 Route::get('/about', 'About@HeadMenu');
 Route::get('/send_sms','SendSms@HeadMenu');
 Route::post('/send_sms','SendSms@InsertToBd');
+Route::get('/register_succes',function (){
+
+	return view('register_succes');
+});
 
 // принт уроков
 Route::get('/lessons/{id}/{title}', 'userSide\PrintLessonFull@SelectLesson')->middleware('auth');
@@ -32,7 +36,10 @@ Route::get('/admin','AdminSection\IndexPageModule@selectBd'
 )->middleware('adminLogin');
 
 Route::get('/admin/make_lesson/{id?}', 'AdminSection\MakeLesson@Make')->name('post');
+//удаение просмотр пользователей зарегестрированых
 Route::get('/admin/user_reg', 'AdminSection\ShowDataTableUserReg@showUser');
+Route::get('/admin/user_reg/{id}', 'AdminSection\ShowDataTableUserReg@delUser');
+
 Route::get('/admin/user_visits', 'AdminSection\ShowDataTableUserVisit@showUser');
 Route::get('/admin/waiting_reg', 'AdminSection\ShowDataTableUserWait@showUser');
 Route::post('/admin/make_lesson/to_bd', 'AdminSection\LessonToBd@insertLesson');

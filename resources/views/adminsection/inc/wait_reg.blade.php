@@ -21,24 +21,24 @@
                 <table class="table table-hover">
                   <tr>
                     <th>ID</th>
-                    <th>Имя</th>
                     <th>Фамилия</th>
+                    <th>Имя</th>
                     <th>Отчество</th>
-                    <th>почта</th>
+                    <th>Почта</th>
                     <th>Телефон</th>
                     <th>Зарегестрировать</th>
                   </tr>
                 @foreach($user_wait as $user)  
                   <tr>
                     <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
                     <td>{{$user->familia}}</td>
+                    <td>{{$user->name}}</td>
                     <td>{{$user->otchestvo}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
                     <td><a href="{{url('/admin/register650287')}}">Зарегестрировать</a></td>
                   </tr>
-                  @endforeach
+                @endforeach
                 </table>
               </div>
               <!-- /.card-body -->

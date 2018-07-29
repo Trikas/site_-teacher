@@ -16,5 +16,11 @@ class ShowDataTableUserReg extends Controller
 
 
 	}
+
+	function delUser ($id) {
+
+		DB::table('users')->where('id', $id)->delete();
+		return redirect('/admin/user_reg');
+	}
     //
 }

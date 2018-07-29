@@ -9,8 +9,17 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
-                        @csrf
 
+                        @csrf
+                        
+                        <div class="form-group row">
+                            <label for="famil" class="col-md-4 col-form-label text-md-right">Прізвище</label>
+
+                            <div class="col-md-6">
+                                <input id="famil" type="text" class="form-control" name="famil" value="{{ old('name') }}" required autofocus>    
+                            </div>
+                        </div>
+                        
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Ім'я</label>
 
@@ -19,13 +28,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group row">
-                            <label for="famil" class="col-md-4 col-form-label text-md-right">Прізвище</label>
-
-                            <div class="col-md-6">
-                                <input id="famil" type="text" class="form-control" name="famil" value="{{ old('name') }}" required autofocus>    
-                            </div>
-                        </div>
+                       
 
                          <div class="form-group row">
                             <label for="otch" class="col-md-4 col-form-label text-md-right">По батькові</label>
