@@ -184,7 +184,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('post')}}" class="nav-link">
+            <a href="{{route('lessonwrite')}}" class="nav-link">
               <i class="nav-icon fas fa-pencil-alt"></i>
               <p>
                 Создать урок

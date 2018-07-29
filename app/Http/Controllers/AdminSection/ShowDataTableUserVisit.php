@@ -15,5 +15,11 @@ class ShowDataTableUserVisit extends Controller
 	    return view('adminsection.inc.user_visits', ['user_visits'=>$user_visits]);
 
 
-	}//
+	}
+		function delUser($id){
+
+			DB::table('visits')->where('id', $id)->delete();
+
+			return redirect('/admin/user_visits');
+	}		
 }

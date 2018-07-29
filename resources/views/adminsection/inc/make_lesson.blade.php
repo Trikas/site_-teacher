@@ -42,9 +42,9 @@
             <div class="card-body pad">
               <div class="mb-3">
                 <label for="exampleInputEmail1">Заголовок урока</label>
-                <textarea type="text" class="form-control" name="title1" placeholder="Название" value="{{$title}}"></textarea><br>
+                <textarea type="text" class="form-control" name="title1" placeholder="Название" value="{{$title1}}">{{$title1}}</textarea><br>
                 <label for="exampleInputEmail1">Подзаголовок урока</label>
-                <textarea type="text" class="form-control" name="title2" placeholder="Название" value="{{$title}}"></textarea><br>
+                <textarea type="text" class="form-control" name="title2" placeholder="Название" value="{{$title2}}">{{$title2}}</textarea><br>
                 <label for="exampleInputEmail1">Выбрать урок</label>
                 <p><select size="4" multiple name="hero[]">
                 <option value="less_read">Урок читання</option>
@@ -60,6 +60,7 @@
                     AjexFileManager.init({returnTo: 'ckeditor', editor: editor});
                     </script>
               </div>
+             
               <input type="hidden" name="id" value="{{$id}}">
               <input type="submit" class="btn btn-block btn-primary btn-sm" value="Опубликовать">
             </div>

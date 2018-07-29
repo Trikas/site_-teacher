@@ -27,7 +27,7 @@ class LessonToBd extends Controller
           }
 
       }
-   		elseif (!empty($contTxt)){
+   		elseif($contTxt!=NULL&&$request->title1!=NULL&&$request->title2!=NULL&&$request->hero[0]!=NULL){
    			DB::table('lesson')->insert([
 				      'content' => $contTxt,
 				      'author' => 'Олейник Ольга Іванівна',
@@ -37,7 +37,8 @@ class LessonToBd extends Controller
             
               'date' => date('j-m-Y в G:i', time())
         ]);
-  } 
+        
+    } 
    			return redirect('/admin/make_lesson');
    	
 

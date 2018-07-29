@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
-	function showRegistrationForm(){
+	function showRegistrationForm($id){
+	
 
-		return view('auth.register');
+		return view('auth.register', ['id' => $id]);
 	}
 
-   function register(Request $request){
+   function register(Request $request, $id){
 
 		DB::table('users')->insert([
 					'name'=>$request->name,
@@ -25,6 +26,8 @@ class RegisterController extends Controller
 					
 		]);
 		
+		DB::table('user_info_for_reg')->where('id', $id)->delete();
+
 		return redirect('/register_succes');
 	}
 }

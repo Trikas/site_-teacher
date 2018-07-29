@@ -33,6 +33,7 @@
                     <td>{{$user->region_name}}</td>
                     <td>{{$user->latitude_longitude}}</td>
                     <td>{{$user->date_visits}}</td>
+                    <td><a href="{{url('/admin/user_visits/'.$user->id)}}">Удалить</a></td>
                   </tr>
                   @endforeach
                 </table>

@@ -15,5 +15,12 @@ class ShowDataTableUserWait extends Controller
 	    return view('adminsection.inc.wait_reg', ['user_wait'=>$user_wait]);
 
 
-	}//
+	}
+	function delUser ($id){
+		
+		DB::table('user_info_for_reg')->where('id', $id)->delete();
+
+		return redirect('/admin/waiting_reg');
+
+	}
 }

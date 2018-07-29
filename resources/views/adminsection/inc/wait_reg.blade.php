@@ -20,23 +20,23 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tr>
-                    <th>ID</th>
                     <th>Фамилия</th>
                     <th>Имя</th>
                     <th>Отчество</th>
                     <th>Почта</th>
                     <th>Телефон</th>
                     <th>Зарегестрировать</th>
+                    <th>Удалить</th>
                   </tr>
                 @foreach($user_wait as $user)  
                   <tr>
-                    <td>{{$user->id}}</td>
                     <td>{{$user->familia}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->otchestvo}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
-                    <td><a href="{{url('/admin/register650287')}}">Зарегестрировать</a></td>
+                    <td><a href="{{route('register650287', $user->id)}}">Зарегестрировать</a></td>
+                    <td><a href="{{url('/admin/waiting_reg/'.$user->id)}}">удалить</a></td>
                   </tr>
                 @endforeach
                 </table>

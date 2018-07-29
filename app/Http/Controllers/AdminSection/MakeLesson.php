@@ -12,12 +12,25 @@ class MakeLesson extends Controller
 
     	$lesson = DB::table('lesson')->where('id', $id)->get();
     	$less="";
-    	$title="";
+    	$title1="";
+    	$title2="";
 		foreach ($lesson as $value) {
 			$less = $value->content;
-			$title = $value->title;
+			$title1 = $value->title1;
+			$title2 = $value->title2;
 		}
 
-    	return view('adminsection.inc.make_lesson', ['lesson'=> $less, 'id'=>$id, 'title'=>$title]);
+    	return view('adminsection.inc.make_lesson', ['lesson'=> $less, 'id'=>$id, 'title1'=>$title1, 'title2'=> $title2]);
+	}
+
+	function DelPost($id){
+
+		DB::table('lesson')->where('id', $id)->delete();
+
+		// $redirect = preg_replace('#.\d#', " ", $_SERVER['REQUEST_URI']);
+
+	
+
+		return redirect('admin/all_lessons');
 	}
 }

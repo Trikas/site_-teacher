@@ -8,9 +8,9 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register650287') }}" aria-label="{{ __('Register') }}">
+                    <form method="POST" action="{{ route('registeruser', $id) }}" aria-label="{{ __('Register') }}">
                         @csrf
-
+                        
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">ФИО</label>
 

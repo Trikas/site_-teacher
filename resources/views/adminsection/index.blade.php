@@ -5,7 +5,7 @@
             <div class="small-box bg-info">
               <div class="inner">
               
-                <h3>{{$count_user['id']}}</h3>
+                <h3>{{$count_user}}</h3>
              
                 <p>Зарегестрировалось</p>
               </div>
@@ -21,7 +21,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$count_visits['id']}}</h3>
+                <h3>{{$count_visits}}</h3>
 
                 <p>Посещений сайта</p>
               </div>
@@ -37,7 +37,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$count_wait['id']}}</h3>
+                <h3>{{$count_wait}}</h3>
 
                 <p>Ожидают регистрации</p>
               </div>
@@ -87,7 +87,7 @@
                       <li>
                         <img src="{{asset('assets/dist/img/user1-128x128.jpg')}}" alt="User Image" style="cursor: pointer;"></a>
                         <a class="users-list-name" href="#" style="cursor: pointer;">{{$user_regis->name}}
-                        <span class="users-list-date">{{$test}}<span class="badge badge-succebass" style="font-size: 12px;">3</span></a>
+                        <span class="users-list-date"><span class="badge badge-succebass" style="font-size: 12px;">3</span></a>
                       </li>
                     @endforeach  
                     </ul>
